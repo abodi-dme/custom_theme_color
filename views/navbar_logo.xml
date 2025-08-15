@@ -1,0 +1,10 @@
+<odoo>
+  <!-- Insert a logo just before the app/brand area in the backend navbar -->
+  <template id="custom_navbar_logo" inherit_id="web.navbar" name="Custom Navbar Logo">
+    <xpath expr="//nav[contains(@class,'o_main_navbar')]//div[contains(@class,'o_menu_brand')]" position="before">
+      <a class="o_custom_logo_link" href="#" title="DME Express">
+        <img class="o_custom_logo" src="/custom_theme_color/static/src/img/logo.png" alt="DME Express"/>
+      </a>
+    </xpath>
+  </template>
+</odoo>

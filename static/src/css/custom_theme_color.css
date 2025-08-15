@@ -1,0 +1,92 @@
+/* ===== Navbar background & text ===== */
+.o_main_navbar {
+  background-color: #06276892 !important; /* your blue */
+}
+
+/* Ensure navbar text/links/icons are readable */
+.o_main_navbar,
+.o_main_navbar a,
+.o_main_navbar .o_menu_brand,
+.o_main_navbar .o_menu_systray .dropdown-toggle {
+  color: #34117e !important;
+}
+
+/* Hover state for navbar links/icons */
+.o_main_navbar a:hover,
+.o_main_navbar .o_menu_systray .dropdown-toggle:hover,
+.o_main_navbar .o_menu_brand:hover {
+  color: #ffe082 !important; /* warm highlight */
+}
+
+/* ===== Left logo (CSS-only) =====
+   Shows a logo image before the "Apps" brand text. */
+.o_main_navbar .o_menu_brand::before {
+  content: "";
+  display: inline-block;
+  height: 28px;                /* tweak size as needed */
+  width: 110px;                /* adjust for your logo aspect */
+  background-image: url("/custom_theme_color/static/src/img/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* If you ever want ONLY the logo (hide the text), uncomment: */
+/* .o_main_navbar .o_menu_brand { font-size: 0 !important; } */
+
+/* ===== Right-side systray icons & badges ===== */
+.o_main_navbar .o_menu_systray i,
+.o_main_navbar .o_menu_systray .fa,
+.o_main_navbar .o_menu_systray .dropdown-toggle,
+.o_main_navbar .o_menu_systray svg {
+  color: #ffffff !important;
+  fill: currentColor !important; /* for SVG */
+}
+
+.o_main_navbar .o_menu_systray .badge,
+.o_main_navbar .o_menu_systray .o_notification_counter,
+.o_main_navbar .o_menu_systray .o_mail_systray_badge {
+  background-color: #ff3366 !important;  /* badge bg */
+  color: #ffffff !important;             /* badge text */
+  border: none !important;
+}
+
+/* User menu text & avatar ring */
+.o_main_navbar .o_user_menu .dropdown-toggle { color: #ffffff !important; }
+.o_main_navbar .o_user_menu img {
+  border: 2px solid #ffffff !important;
+  border-radius: 9999px !important;
+}
+
+/* Subtle hover brighten for systray items */
+.o_main_navbar .o_menu_systray > *:hover { filter: brightness(1.1); }
+
+/* ===== Primary buttons ===== */
+.btn-primary {
+  background-color: #2a168c !important;
+  border-color: #161ccb !important;
+  color: #ffffff !important;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  filter: brightness(1.05);
+  background-color: #241279 !important;  /* slightly darker */
+  border-color: #1418b0 !important;
+}
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  filter: none;
+  background-color: #1f1069 !important;
+  border-color: #12169e !important;
+}
+
+/* ===== Mobile tweaks ===== */
+@media (max-width: 992px) {
+  .o_main_navbar .o_menu_brand::before {
+    height: 24px;
+    width: 95px;
+  }
+}
