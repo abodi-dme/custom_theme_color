@@ -1,6 +1,15 @@
 /* ===== Navbar background & text ===== */
 .o_main_navbar {
   background-color: #06276892 !important; /* your blue */
+
+  /* ► Place the logo on the navbar itself */
+  background-image: url("/custom_theme_color/static/src/img/logo.png");
+  background-repeat: no-repeat;
+  background-position: 12px center;   /* left offset + vertical centering */
+  background-size: 120px auto;        /* adjust to your taste */
+
+  /* ► Reserve space so text (Apps) doesn't overlap the logo */
+  padding-left: 150px;                 /* >= background-size width + position left */
 }
 
 /* Ensure navbar text/links/icons are readable */
@@ -8,62 +17,41 @@
 .o_main_navbar a,
 .o_main_navbar .o_menu_brand,
 .o_main_navbar .o_menu_systray .dropdown-toggle {
-  color: #34117e !important;
+  color: #f0eef5 !important;
 }
 
-/* Hover state for navbar links/icons */
+/* Hover state */
 .o_main_navbar a:hover,
 .o_main_navbar .o_menu_systray .dropdown-toggle:hover,
 .o_main_navbar .o_menu_brand:hover {
-  color: #ffe082 !important; /* warm highlight */
+  color: #0d0a01 !important;
 }
-
-/* ===== Left logo (CSS-only) =====
-   Shows a logo image before the "Apps" brand text. */
-.o_main_navbar .o_menu_brand::before {
-  content: "";
-  display: inline-block;
-  height: 28px;                /* tweak size as needed */
-  width: 110px;                /* adjust for your logo aspect */
-  background-image: url("/custom_theme_color/static/src/img/logo.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left center;
-  margin-right: 10px;
-  vertical-align: middle;
-}
-
-/* If you ever want ONLY the logo (hide the text), uncomment: */
-/* .o_main_navbar .o_menu_brand { font-size: 0 !important; } */
 
 /* ===== Right-side systray icons & badges ===== */
 .o_main_navbar .o_menu_systray i,
 .o_main_navbar .o_menu_systray .fa,
 .o_main_navbar .o_menu_systray .dropdown-toggle,
 .o_main_navbar .o_menu_systray svg {
-  color: #ffffff !important;
-  fill: currentColor !important; /* for SVG */
+  color: #4a3b9f !important;
+  fill: currentColor !important;
 }
 
 .o_main_navbar .o_menu_systray .badge,
 .o_main_navbar .o_menu_systray .o_notification_counter,
 .o_main_navbar .o_menu_systray .o_mail_systray_badge {
-  background-color: #ff3366 !important;  /* badge bg */
-  color: #ffffff !important;             /* badge text */
+  background-color: #ff3366 !important;
+  color: #ffffff !important;
   border: none !important;
 }
 
-/* User menu text & avatar ring */
+/* User menu */
 .o_main_navbar .o_user_menu .dropdown-toggle { color: #ffffff !important; }
 .o_main_navbar .o_user_menu img {
   border: 2px solid #ffffff !important;
   border-radius: 9999px !important;
 }
 
-/* Subtle hover brighten for systray items */
-.o_main_navbar .o_menu_systray > *:hover { filter: brightness(1.1); }
-
-/* ===== Primary buttons ===== */
+/* Buttons */
 .btn-primary {
   background-color: #2a168c !important;
   border-color: #161ccb !important;
@@ -72,7 +60,7 @@
 .btn-primary:hover,
 .btn-primary:focus {
   filter: brightness(1.05);
-  background-color: #241279 !important;  /* slightly darker */
+  background-color: #241279 !important;
   border-color: #1418b0 !important;
 }
 .btn-primary:active,
@@ -85,8 +73,31 @@
 
 /* ===== Mobile tweaks ===== */
 @media (max-width: 992px) {
-  .o_main_navbar .o_menu_brand::before {
-    height: 24px;
-    width: 95px;
+  .o_main_navbar {
+    background-position: 8px center;
+    background-size: 95px auto;
+    padding-left: 115px; /* keep text clear of the logo */
+  }
+}
+
+
+/* --- Ensure logo also shows on the HOME (dashboard) screen --- */
+.o_home_menu .o_main_navbar {
+  /* re-apply the logo because home view overrides the navbar background */
+  background-image: url("/custom_theme_color/static/src/img/logo.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: 12px center !important;
+  background-size: 120px auto !important;
+
+  /* reserve space so text doesn't overlap the logo */
+  padding-left: 150px !important;
+}
+
+/* mobile sizing on home screen too */
+@media (max-width: 992px) {
+  .o_home_menu .o_main_navbar {
+    background-position: 8px center !important;
+    background-size: 95px auto !important;
+    padding-left: 115px !important;
   }
 }
