@@ -1,34 +1,57 @@
-/* ===== Navbar background & text (all pages except home) ===== */
-.o_main_navbar {
-  background: #031c4d92 url("/custom_theme_color/static/src/img/logo.png")
-              no-repeat 12px center / 80px auto !important;
-  padding-left: 100px !important; /* >= logo width + position */
+/* ===== Navbar (all pages incl. home) ===== */
+.o_main_navbar,
+.o_web_client.o_home_menu header.o_main_navbar,
+.o_home_menu header.o_main_navbar,
+.o_home_menu .o_main_navbar {
+  background-color: #f3f4f8 !important;   /* light navbar */
+  height: 56px;                            /* consistent height */
+  padding-left: 172px !important;          /* space for logo */
+  position: relative;
+  box-shadow: 0 1px 0 rgba(0,0,0,.08);
 }
 
-/* Ensure navbar text/links/icons are readable */
+/* Left “>” toggle spacing */
+.o_main_navbar .o_menu_toggle { margin-left: 2px; }
+
+/* ===== Logo (no background box) ===== */
+.o_main_navbar::before {
+  content: "";
+  position: absolute;
+  left: 12px;                              /* align to gutter */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 148px;                            /* control logo size */
+  height: 42px;                            /* control logo height */
+  background-image: url("/custom_theme_color/static/src/img/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 2;
+  pointer-events: none;                    /* don't block clicks */
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* ===== Readability & interactions ===== */
 .o_main_navbar,
 .o_main_navbar a,
 .o_main_navbar .o_menu_brand,
 .o_main_navbar .o_menu_systray .dropdown-toggle {
-  color: #050111 !important;
+  color: #073665 !important;
 }
-
-/* Hover state */
 .o_main_navbar a:hover,
 .o_main_navbar .o_menu_systray .dropdown-toggle:hover,
 .o_main_navbar .o_menu_brand:hover {
-  color: #0d0a01 !important;
+  color: #020b1e !important;
 }
 
-/* ===== Right-side systray icons & badges ===== */
+/* Right-side systray icons & badges */
 .o_main_navbar .o_menu_systray i,
 .o_main_navbar .o_menu_systray .fa,
 .o_main_navbar .o_menu_systray .dropdown-toggle,
 .o_main_navbar .o_menu_systray svg {
-  color: #f8f7fb !important;
+  color: #04010b !important;
   fill: currentColor !important;
 }
-
 .o_main_navbar .o_menu_systray .badge,
 .o_main_navbar .o_menu_systray .o_notification_counter,
 .o_main_navbar .o_menu_systray .o_mail_systray_badge {
@@ -38,39 +61,30 @@
 }
 
 /* User menu */
-.o_main_navbar .o_user_menu .dropdown-toggle { color: #ffffff !important; }
+.o_main_navbar .o_user_menu .dropdown-toggle { color: #04010b !important; }
 .o_main_navbar .o_user_menu img {
-  border: 2px solid #ffffff !important;
+  border: 2px solid #24045b !important;
   border-radius: 9999px !important;
 }
 
-/* ===== Buttons ===== */
+/* ===== Primary buttons ===== */
 .btn-primary {
-  background-color: #2a168c !important;
-  border-color: #161ccb !important;
+  background-color: #E21A23 !important;
+  border-color: #E21A23 !important;
   color: #ffffff !important;
 }
 .btn-primary:hover,
 .btn-primary:focus {
   filter: brightness(1.05);
-  background-color: #241279 !important;
-  border-color: #1418b0 !important;
+  background-color: #E21A23 !important;
+  border-color: #E21A23 !important;
 }
 .btn-primary:active,
 .btn-primary.active,
 .show > .btn-primary.dropdown-toggle {
   filter: none;
-  background-color: #1f1069 !important;
-  border-color: #12169e !important;
-}
-
-/* ===== Navbar on HOME (dashboard) ===== */
-.o_web_client.o_home_menu header.o_main_navbar,
-.o_home_menu header.o_main_navbar,
-.o_home_menu .o_main_navbar {
-  background: #02143792 url("/custom_theme_color/static/src/img/logo.png")
-              no-repeat 12px center / 80px auto !important;
-  padding-left: 150px !important;
+  background-color: #E21A23 !important;
+  border-color: #E21A23 !important;
 }
 
 /* ===== Mobile tweaks ===== */
@@ -79,8 +93,11 @@
   .o_web_client.o_home_menu header.o_main_navbar,
   .o_home_menu header.o_main_navbar,
   .o_home_menu .o_main_navbar {
-    background-position: 8px center !important;
-    background-size: 95px auto !important;
-    padding-left: 115px !important;
+    height: 52px;
+    padding-left: 140px !important;        /* adjust for smaller logo */
+  }
+  .o_main_navbar::before {
+    width: 116px;
+    height: 36px;
   }
 }
