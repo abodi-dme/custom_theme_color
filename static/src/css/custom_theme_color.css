@@ -3,9 +3,9 @@
 .o_web_client.o_home_menu header.o_main_navbar,
 .o_home_menu header.o_main_navbar,
 .o_home_menu .o_main_navbar {
-  background-color: #f3f4f8 !important;   /* light navbar */
+  background-color: #e3e8f1 !important;   /* light navbar */
   height: 56px;                            /* consistent height */
-  padding-left: 172px !important;          /* space for logo */
+  padding-left: 150px !important;          /* space for logo */
   position: relative;
   box-shadow: 0 1px 0 rgba(0,0,0,.08);
 }
@@ -35,8 +35,8 @@
 .o_main_navbar,
 .o_main_navbar a,
 .o_main_navbar .o_menu_brand,
-.o_main_navbar .o_menu_systray .dropdown-toggle {
-  color: #073665 !important;
+.o_main_navbar .o_menu_systray .dropdown-toggle {   
+  color: #124a83 !important;
 }
 .o_main_navbar a:hover,
 .o_main_navbar .o_menu_systray .dropdown-toggle:hover,
@@ -101,3 +101,41 @@
     height: 36px;
   }
 }
+
+
+/* Fill ONLY the section buttons inside the navbar */
+.o_main_navbar .o_menu_sections .o_menu_entry,
+.o_main_navbar .o_menu_sections .btn-link,
+.o_main_navbar .o_menu_sections .nav-link,
+.o_main_navbar .o_menu_sections > a,
+.o_main_navbar .o_menu_sections > button {
+  background-color: #21BEF0 !important;   /* your fill */
+  color: #ffffff !important;               /* readable text */
+  display: inline-flex;                    /* avoids collapsing height */
+  align-items: center;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 6px;
+  text-decoration: none !important;        /* beat btn-link underline */
+}
+
+/* Hover + active/current state */
+.o_main_navbar .o_menu_sections .o_menu_entry:hover,
+.o_main_navbar .o_menu_sections .btn-link:hover,
+.o_main_navbar .o_menu_sections .nav-link:hover,
+.o_main_navbar .o_menu_sections .o_menu_entry.active,
+.o_main_navbar .o_menu_sections .nav-link.active,
+.o_main_navbar .o_menu_sections .o_menu_entry[aria-current="page"] {
+  background-color: #15A6D3 !important;
+  color: #ffffff !important;
+}
+
+/* Optional: remove any default borders/shadows coming from themes */
+.o_main_navbar .o_menu_sections .o_menu_entry,
+.o_main_navbar .o_menu_sections .btn-link,
+.o_main_navbar .o_menu_sections .nav-link {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+
