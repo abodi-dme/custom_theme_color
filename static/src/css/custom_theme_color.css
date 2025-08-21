@@ -3,7 +3,7 @@
 .o_web_client.o_home_menu header.o_main_navbar,
 .o_home_menu header.o_main_navbar,
 .o_home_menu .o_main_navbar {
-  background-color: #e3e8f1 !important;   /* light navbar */
+  background-color: #feffff !important;   /* light navbar */
   height: 56px;                            /* consistent height */
   padding-left: 150px !important;          /* space for logo */
   position: relative;
@@ -139,3 +139,46 @@
 }
 
 
+/* ===== Home menu: larger app icons ===== */
+.o_home_menu .o_apps .o_app .o_app_icon,
+.o_web_client.o_home_menu .o_app .o_app_icon,
+.o_home_menu .o_app_icon.rounded-3 {
+  width: 90px !important;      /* was ~70px */
+  height: 90px !important;
+  object-fit: contain;          /* avoid stretching */
+}
+
+/* Mobile: scale a bit down so grid stays tidy */
+@media (max-width: 992px) {
+  .o_home_menu .o_apps .o_app .o_app_icon,
+  .o_web_client.o_home_menu .o_app .o_app_icon,
+  .o_home_menu .o_app_icon.rounded-3 {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+
+/* ===== Home menu: app name under icon -> black ===== */
+.o_home_menu .o_app .o_app_name,
+.o_home_menu .o_app .o_app_name:hover {
+  color: #000000 !important;
+  text-shadow: none !important; /* some themes add a light shadow */
+}
+
+/* Optional: a touch more vertical spacing for the bigger icons */
+.o_home_menu .o_app { gap: 8px; }
+/* ===== Home menu: app label color & size ===== */
+.o_home_menu .o_apps .o_app .o_caption {
+  color: #000 !important;        /* make labels black */
+  text-shadow: none !important;  /* some themes add a light shadow */
+  font-size: 15px;               /* bump from ~14px */
+  font-weight: 500;              /* optional: a bit bolder */
+}
+
+/* Keep it black on hover/focus/visited too */
+.o_home_menu .o_apps .o_app:hover .o_caption,
+.o_home_menu .o_apps .o_app:focus .o_caption,
+.o_home_menu .o_apps .o_app:active .o_caption,
+.o_home_menu .o_apps .o_app:visited .o_caption {
+  color: #000 !important;
+}
